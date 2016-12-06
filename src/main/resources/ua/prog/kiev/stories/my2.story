@@ -1,15 +1,16 @@
 
 Scenario: A scenario with some pending steps
 
-Given firefox started
-And proceed to http://amazon.com
-!--When search for <request>
-!--Then search results size more than 1
+Given chrome started
+And proceed to http://www.weather-forecast.com
+
 Then quit driver
 
 Examples:
-|request|
-|MacBook|
-|Sony|
+|city|
+|Toronto|
+|Odessa|
+|Washington D.C.|
+|London|
 
 
