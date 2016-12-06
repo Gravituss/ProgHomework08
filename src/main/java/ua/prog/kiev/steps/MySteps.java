@@ -3,6 +3,7 @@ package ua.prog.kiev.steps;
 import junit.framework.Assert;
 import org.jbehave.core.annotations.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -59,8 +60,14 @@ public class MySteps {
 
     @Then("print temperatures")
     public void printTemperatures(){
-        System.out.println(weatherForecastSomeCity.getTempHighTxt());
-        System.out.println(weatherForecastSomeCity.getTempLowTxt());
+        for(WebElement eleHi: weatherForecastSomeCity.getTempHighTxtList()){
+            System.out.println(eleHi.getText());
+            break;
+        }
+        for(WebElement eleLo: weatherForecastSomeCity.getTempLowTxtList()){
+            System.out.println(eleLo.getText());
+            break;
+        }
     }
 
     @Then("click farenheit button")

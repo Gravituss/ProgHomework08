@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class WeatherForecastSomeCityPage extends WeatherForecastMainPage {
     public WeatherForecastSomeCityPage (WebDriver driver) {
         super(driver);
@@ -18,30 +20,30 @@ public class WeatherForecastSomeCityPage extends WeatherForecastMainPage {
         return centigradeBtn;
     }
 
-    @FindBy(xpath = ".//*[@class='units-cont']//*[@class='units metric']")
+    @FindBy(xpath = ".//*[@class='units-cont']//*[contains(@class,'metric')]")
     private WebElement centigradeBtn;
 
     public WebElement getFarenheitBtn() {
         return farenheitBtn;
     }
 
-    @FindBy(xpath = ".//*[@class='units-cont']//*[@class='units imperial active']")
+    @FindBy(xpath = ".//*[@class='units-cont']//*[contains(@class,'imperial')]")
     private WebElement farenheitBtn;
 
-    public WebElement getTempHighTxt() {
-        return tempHighTxt;
+    public List<WebElement> getTempHighTxtList() {
+        return tempHighTxtList;
     }
 
     @FindBy(xpath = ".//tr[@class='max-temp-row']//td[1]//span")
-    private WebElement tempHighTxt;
+    private List<WebElement> tempHighTxtList;
 
 
-    public WebElement getTempLowTxt() {
-        return tempLowTxt;
+    public List<WebElement> getTempLowTxtList() {
+        return tempLowTxtList;
     }
 
     @FindBy(xpath = ".//tr[@class='min-temp-row']//td[1]//span")
-    private WebElement tempLowTxt;
+    private List<WebElement> tempLowTxtList;
 
     public boolean cityIsCorrect(String city){
         return cityHeader.getText().contains(city);
