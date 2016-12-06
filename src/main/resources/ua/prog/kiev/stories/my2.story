@@ -9,7 +9,7 @@ And ensure the <city> is correct
 Then click centigrade button
 And print temperatures
 Then click farenheit button
-
+And print temperatures
 Then quit driver
 
 Examples:
