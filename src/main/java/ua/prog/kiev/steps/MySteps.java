@@ -21,8 +21,8 @@ public class MySteps {
 
     @Given("$browser started")
     public void startDriver (String browser) {
-        System.setProperty("webdriver.gecko.driver", "C:\\Temp\\geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\Temp\\chromedriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\pr\\gecko\\geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\pr\\cd\\chromedriver.exe");
         if (browser.equals("firefox")) driver = new FirefoxDriver();
         if (browser.equals("chrome")) driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -43,7 +43,11 @@ public class MySteps {
     public void checkFirstElement () {
         weatherForecastMain.selectFirstCity();
         weatherForecastSomeCity = PageFactory.initElements(driver, WeatherForecastSomeCityPage.class);
-        assertTrue(weatherForecastSomeCity.cityIsRight());
+    }
+
+    @Then("ensure the $city is correct")
+    public void ensureCityIsRight(String city){
+        assertTrue(weatherForecastSomeCity.cityIsCorrect(city));
     }
 
     @Then("quit driver")

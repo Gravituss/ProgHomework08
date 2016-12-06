@@ -5,7 +5,7 @@ Given chrome started
 And proceed to http://www.weather-forecast.com
 When type the <city>
 Then open the first element in the list
-
+And ensure the <city> is correct
 Then quit driver
 
 Examples:

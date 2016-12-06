@@ -14,11 +14,8 @@ public class WeatherForecastSomeCityPage extends WeatherForecastMainPage {
     @FindBy(xpath = ".//nav[@class='tabs-outer']//h1")
     private WebElement cityHeader;
 
-    public boolean cityIsRight(String city){
+    public boolean cityIsCorrect(String city){
         return cityHeader.getText().contains(city);
     }
-
-
-
 
 }
