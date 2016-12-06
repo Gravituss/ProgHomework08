@@ -48,7 +48,27 @@ public class MySteps {
     @Then("ensure the $city is correct")
     public void ensureCityIsRight(String city){
         assertTrue(weatherForecastSomeCity.cityIsCorrect(city));
+        System.out.println(city);
     }
+
+    @Then("click centigrade button")
+    public void clickCentigrade(){
+        weatherForecastSomeCity.getCentigradeBtn().click();
+        System.out.println("Centigrade:");
+    }
+
+    @Then("print temperatures")
+    public void printTemperatures(){
+        System.out.println(weatherForecastSomeCity.getTempHighTxt());
+        System.out.println(weatherForecastSomeCity.getTempLowTxt());
+    }
+
+    @Then("click farenheit button")
+    public void clickFarenheit(){
+        weatherForecastSomeCity.getFarenheitBtn().click();
+        System.out.println("Farenheit:");
+    }
+
 
     @Then("quit driver")
     @Alias("русский текст")
